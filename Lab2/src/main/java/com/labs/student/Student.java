@@ -6,6 +6,7 @@ public class Student {
     int ID;
     String Surname;
     String Name;
+    String Patronymic;
     Date Birthday;
     String Adress;
     int Phone;
@@ -13,10 +14,11 @@ public class Student {
     int Course;
     int Group;
     
-    public Student(int iD, String surname, String name, Date birthday, String adress, int phone, String faculty,
+    public Student(int iD, String surname, String name, String patronymic, Date birthday, String adress, int phone, String faculty,
             int course, int group) {
         ID = iD;
         Surname = surname;
+        Patronymic = patronymic;
         Name = name;
         Birthday = birthday;
         Adress = adress;
@@ -26,6 +28,14 @@ public class Student {
         Group = group;
     }
     
+
+    public String getPatronymic() {
+        return Patronymic;
+    }
+    public void setPatronymic(String patronymic) {
+        Patronymic = patronymic;
+    }
+    //
     //
     public String getFaculty() {
         return Faculty;
