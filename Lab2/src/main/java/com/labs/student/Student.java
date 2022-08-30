@@ -1,6 +1,8 @@
 package com.labs.student;
 
-import java.sql.Date;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class Student {
     int ID;
@@ -100,5 +102,11 @@ public class Student {
     //
     public int getID() {
         return ID;
+    }
+
+
+    public String ToString(){
+        DateFormat f = new SimpleDateFormat("yyyy/MM/dd");
+        return Surname+' '+Name+' '+Patronymic+" Факультет "+Faculty+"  Група: "+Group+" Курс: "+Course+"  Нар.: "+f.format(Birthday)+"  Тел: "+Phone+"  Адр: "+Adress;
     }
 }
