@@ -9,12 +9,12 @@ public class Student {
     String Patronymic;
     Date Birthday;
     String Adress;
-    int Phone;
+    String Phone;
     String Faculty;
     int Course;
     int Group;
     
-    public Student(int iD, String surname, String name, String patronymic, Date birthday, String adress, int phone, String faculty,
+    public Student(int iD, String surname, String name, String patronymic, Date birthday, String adress, String phone, String faculty,
             int course, int group) {
         ID = iD;
         Surname = surname;
@@ -29,6 +29,38 @@ public class Student {
     }
     
 
+    public int getGroup() {
+        return Group;
+    }
+    public void setGroup(int group) {
+        Group = group;
+    }
+    //
+    //
+    public int getCourse() {
+        return Course;
+    }
+    public void setCourse(int course) {
+        Course = course;
+    }
+    //
+    //
+    public String getAdress() {
+        return Adress;
+    }
+    public void setAdress(String adress) {
+        Adress = adress;
+    }
+    //
+    //
+    public String getPhone() {
+        return Phone;
+    }
+    public void setPhone(String phone) {
+        Phone = phone;
+    }
+    //
+    //
     public String getPatronymic() {
         return Patronymic;
     }
