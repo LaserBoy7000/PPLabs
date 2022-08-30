@@ -1,3 +1,5 @@
+package Lab1.src;
+
 /**
  * Represents single number from Lukes sequence
  */

@@ -1,3 +1,5 @@
+package Lab1.src;
+
 public class MathExtensions{
     public boolean IsPerfectCube(long value){
         var rt = Math.pow((double)value, 1.0/3);

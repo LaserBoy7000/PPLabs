@@ -1,3 +1,5 @@
+package Lab1.src;
+
 import java.util.Scanner;
 
 public class Program{
