@@ -7,10 +7,6 @@ import java.util.GregorianCalendar;
 import java.util.List;
 
 import com.labs.student.*;
-/**
- * Hello world!
- *
- */
 public class Main
 {
     public static void main( String[] args )
