@@ -11,7 +11,6 @@ public class Main
 {
     public static void main( String[] args )
     {
-        System.out.println( "Hello World!" );
         List<Student> data = GenStudents(50);
         System.out.println("\n-----All students-----\n\n");
         for(int i = 0; i < data.size(); i++)
