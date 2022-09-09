@@ -11,6 +11,8 @@ public interface K32 extends Kernel32{
     public int SetConsoleWindowInfo(HANDLE hConsoleOutput, int bAbsolute, SMALL_RECT lpConsoleWindow);
     int WriteConsoleOutputAttribute(HANDLE hConsoleOutput, short[] lpAttribute, int nLength, COORD.ByValue dwWriteCoord, int[] lpNumberOfAttrsWritten);
     int WriteConsoleOutputCharacterW(HANDLE hConsoleOutput, char[] lpCharacter, int nLength, COORD.ByValue dwWriteCoord, int[] lpNumberOfCharsWritten);
+    int SetConsoleTextAttribute(HANDLE hConsoleOutput, short wAttributes);
+    int SetConsoleCursorPosition(HANDLE hConsoleOutput, COORD.ByValue dwCursorPosition);
     //public void WriteConsoleOutputW(HANDLE hConsoleOut, CHAR_INFO[] lpBuffer, COORD dwBufferSize, COORD dwBufferCoord, SMALL_RECT lpWriteRegion);
 
 
