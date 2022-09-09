@@ -83,6 +83,8 @@ public class Fight {
                 }
             } else
                 Writeln(dr.getName()+" Missed");
+            if(team1.size() == 0)
+            break;
         }
     }
 
@@ -103,6 +105,8 @@ public class Fight {
                     Writeln(dr.getName()+" Shoot "+trg.getName());
                 }
             } else Writeln(dr.getName()+" Missed");
+            if(team1.size() == 0)
+                break;
         }
     }
 
