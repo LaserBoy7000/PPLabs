@@ -73,7 +73,7 @@ public abstract class Droid {
     public boolean TryAimUserAI(){
         Random rd = new Random();
         int pos = rd.nextInt(1, 3+quality);
-        if(pos > 2)
+        if(pos > 1)
             return true;
         return false;
     }
