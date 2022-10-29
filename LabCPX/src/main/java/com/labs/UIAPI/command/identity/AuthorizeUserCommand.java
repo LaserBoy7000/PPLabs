@@ -1,7 +1,6 @@
 package com.labs.UIAPI.command.identity;
 import com.labs.UIAPI.CommandResult;
 import com.labs.UIAPI.ICommand;
-import com.labs.core.service.DependenciesInjector;
 import com.labs.core.service.IIdentityService;
 
 public class AuthorizeUserCommand implements ICommand<Object> {
@@ -9,16 +8,25 @@ public class AuthorizeUserCommand implements ICommand<Object> {
     private String Name;
     private String Surname;
     private String Password;
+    private boolean Configured = false;
 
     public AuthorizeUserCommand(String name, String surname, String password){
-        id = (IIdentityService)DependenciesInjector.get(IIdentityService.class);
         Name = name;
         Surname = surname;
         Password = password;
     }
 
+    public void setServices(IIdentityService identity){
+        id = identity;
+        Configured = true;
+    }
+
+
     @Override
-    public CommandResult<Object> executeAsObjective() throws Exception {
+    public CommandResult<Object> executeAsObjective() {
+        if(!Configured)
+        return new CommandResult<Object>(null, "FATAL: Command was not configured", false);
+
         boolean rs = id.register(Name, Surname, Password);
         if(rs)
             return new CommandResult<Object>(null, "Authorization was successful", true);
@@ -26,7 +34,7 @@ public class AuthorizeUserCommand implements ICommand<Object> {
     }
 
     @Override
-    public CommandResult<Object> execute() throws Exception {
+    public CommandResult<Object> execute() {
         return executeAsObjective();
     }
     
