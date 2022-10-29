@@ -8,6 +8,7 @@ import org.hibernate.SessionFactory;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import com.labs.core.entity.Constant;
+//import com.labs.core.service.IConsistencyService;
 import com.labs.core.service.IConstantProvider;
 import jakarta.persistence.TypedQuery;
 import jakarta.persistence.criteria.CriteriaBuilder;
@@ -18,12 +19,13 @@ import jakarta.persistence.criteria.Root;
 public class ConstantProvider implements IConstantProvider {
     public static final String PRESERVED_VALUE_NAME = "value";
     private List<Constant> Constants;
-    @Inject
-    private SessionFactory SessionFactory;    
+    private SessionFactory SessionFactory;   
+    //private IConsistencyService CS; 
     private String Status = "";
 
     @Inject
-    public ConstantProvider(Session session){
+    public ConstantProvider(Session session, SessionFactory factory){
+        SessionFactory = factory;
         CriteriaBuilder cb = session.getCriteriaBuilder();
         CriteriaQuery<Constant> cq = cb.createQuery(Constant.class);
         Root<Constant> rootEntry = cq.from(Constant.class);
@@ -54,14 +56,15 @@ public class ConstantProvider implements IConstantProvider {
         if(!val.isPresent()){
             upd = new Constant();
             upd.setTitle(title);
+            Constants.add(upd);
         } 
         else 
         {
             upd = val.get();
-            Constants.add(upd);
         }
         upd.setValue(value);
         dbSave(upd);
+        //CS.recalcWhereConst(upd);
         return true;
     }
 
@@ -76,7 +79,7 @@ public class ConstantProvider implements IConstantProvider {
 
     private void dbSave(Constant value){
         Session s = SessionFactory.openSession();
-        s.persist(value);
+        s.merge(value);
         s.flush();
         s.close();
     }
