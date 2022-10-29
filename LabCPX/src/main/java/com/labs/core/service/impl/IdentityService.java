@@ -14,11 +14,15 @@ import jakarta.persistence.criteria.Root;
 
 @Singleton
 public class IdentityService implements IIdentityService {
-    @Inject
     private SessionFactory DAOFactory;
     private User CurentUser;
     private final ActionEvent event = new ActionEvent();
     private String Status = "";
+
+    @Inject
+    public IdentityService(SessionFactory factory){
+        DAOFactory = factory;
+    }
     
     @Override
     public boolean isUserAvailable() {

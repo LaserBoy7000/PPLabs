@@ -24,7 +24,6 @@ import jakarta.persistence.criteria.Root;
 
 @Singleton
 public class Selector implements ISelector {
-    @Inject
     private SessionFactory DAOFactory;
     private IIdentityService IdentityContext;
 
@@ -48,9 +47,10 @@ public class Selector implements ISelector {
     private String Status;
 
     @Inject
-    public Selector(IIdentityService identity){
+    public Selector(IIdentityService identity, SessionFactory factory){
         identity.subscribeContextChange(()->clearContext());
         IdentityContext = identity;
+        DAOFactory = factory;
     }
 
 
@@ -82,6 +82,7 @@ public class Selector implements ISelector {
             List<?> ls = GetBuferByType(type);
             if(ls == null || ls.size() == 0){
                 setStatus("ERROR: type "+type.getSimpleName()+" does not have data in previous selection");
+                return false;
             }
         }
 
@@ -105,7 +106,7 @@ public class Selector implements ISelector {
     private <T> Stream<T> ApplyNumericalFiltering(Stream<T> stream, Class<?> type){
         ReflectionGetter gt = new ReflectionGetter();
         return stream.filter((x)->{
-            double v = (double)gt.buildReflectedGetter(type, NumericalSecectionProperty).apply(x);
+            double v = ((Number)gt.buildReflectedGetter(type, NumericalSecectionProperty).apply(x)).doubleValue();
             boolean rs = true;
             if(Max != null)
                 rs = rs && v <= Max;
@@ -169,8 +170,11 @@ public class Selector implements ISelector {
     private Tax[] selectTaxPrev() {
         Stream<Tax> act = TypicalInternalSelector(Tax.class);
         List<Tax> ls = act.toList();
-        if(ls.size() > 0)
+        if(ls.size() > 0){
+            LastSelectionType = Tax.class;
+            Selected = null; SelectedType = null;
             Taxes = ls;
+        }
         return Arrays.copyOf(ls.toArray(), ls.size(), Tax[].class);
     }
 
@@ -190,7 +194,7 @@ public class Selector implements ISelector {
         }
 
         if(StringSelectionProperty != null)
-            wheres.add(cb.like(rt.get(StringSelectionProperty), '%'+Lexem+'%'));
+            wheres.add(cb.like(rt.get(StringSelectionProperty).as(String.class), '%'+Lexem+'%'));
 
         if(wheres.size() > 0)
             all = all.where(wheres.toArray(new Predicate[wheres.size()]));
@@ -227,8 +231,11 @@ public class Selector implements ISelector {
     private Income[] selectIncomePrev() {
         Stream<Income> act = TypicalInternalSelector(Income.class);
         List<Income> ls = act.toList();
-        if(ls.size() > 0)
+        if(ls.size() > 0){
+            LastSelectionType = Income.class;
+            Selected = null; SelectedType = null;
             Incomes = ls;
+        }
         return Arrays.copyOf(ls.toArray(), ls.size(), Income[].class);
     }
 
@@ -236,11 +243,12 @@ public class Selector implements ISelector {
         int userId = IdentityContext.getCurrentUser().getID();
         Session s = DAOFactory.openSession();
         CriteriaBuilder cb = s.getCriteriaBuilder();
-        CriteriaQuery<User> cq = cb.createQuery(User.class);
-        Root<User> rt = cq.from(User.class);
-        Join<User, Income> join = rt.join("Incomes");
+        CriteriaQuery<Income> cq = cb.createQuery(Income.class);
         List<Predicate> wheres = new ArrayList<Predicate>(); 
-        wheres.add(cb.equal(rt.get("ID"), userId));
+        Root<Income> rt = cq.from(Income.class);
+        Join<Income, User> join = rt.join("User");
+        wheres.add(cb.equal(join.get("ID"), userId));
+
         
         if(NumericalSecectionProperty != null){
             if(Min != null)
@@ -250,25 +258,26 @@ public class Selector implements ISelector {
         }
 
         if(StringSelectionProperty != null)
-            wheres.add(cb.like(rt.get(StringSelectionProperty), '%'+Lexem+'%'));
+            wheres.add(cb.like(rt.get(StringSelectionProperty).as(String.class), '%'+Lexem+'%'));
 
-        cq = cq.where(wheres.toArray(new Predicate[wheres.size()]));;
+        cq = cq.where(wheres.toArray(new Predicate[0]));
         
         if(OrderByPropperty != null)
             if(!OrderByDescending)
-                cq = cq.orderBy(cb.asc(join.get(OrderByPropperty)));
-            else cq = cq.orderBy(cb.desc(join.get(OrderByPropperty)));
+                cq = cq.orderBy(cb.asc(rt.get(OrderByPropperty)));
+            else cq = cq.orderBy(cb.desc(rt.get(OrderByPropperty)));
 
-        User us = s.createQuery(cq).list().stream().findFirst().get();
-        s.close();
+        List<Income> rs = s.createQuery(cq).list();
 
-        if(us.getIncomes().size() > 0){
-            LastSelectionType = Tax.class;
+        if(rs.size() > 0){
+            LastSelectionType = Income.class;
             Selected = null; SelectedType = null;
-            Incomes = us.getIncomes();
+            Incomes = rs;
         }
+
+        s.close();
         
-        return Arrays.copyOf(us.getIncomes().toArray(), us.getIncomes().size(), Income[].class);
+        return Arrays.copyOf(rs.toArray(), rs.size(), Income[].class);
     }
 
 
@@ -285,8 +294,11 @@ public class Selector implements ISelector {
     private Exemption[] selectExemptionPrev(){
         Stream<Exemption> act = TypicalInternalSelector(Exemption.class);
         List<Exemption> ls = act.toList();
-        if(ls.size() > 0)
+        if(ls.size() > 0){
+            LastSelectionType = Exemption.class;
+            Selected = null; SelectedType = null;
             Exemptions = ls;
+        }
         return Arrays.copyOf(ls.toArray(), ls.size(), Exemption[].class);
     }
 
@@ -306,7 +318,7 @@ public class Selector implements ISelector {
         }
 
         if(StringSelectionProperty != null)
-            wheres.add(cb.like(rt.get(StringSelectionProperty), '%'+Lexem+'%'));
+            wheres.add(cb.like(rt.get(StringSelectionProperty).as(String.class), '%'+Lexem+'%'));
 
         if(wheres.size() > 0)
             all = all.where(wheres.toArray(new Predicate[wheres.size()]));
@@ -320,7 +332,7 @@ public class Selector implements ISelector {
         s.close();
 
         if(ex.size() > 0){
-        LastSelectionType = Tax.class;
+        LastSelectionType = Exemption.class;
         Selected = null; SelectedType = null;
         Exemptions = ex;
         }
@@ -331,7 +343,7 @@ public class Selector implements ISelector {
 
     @Override
     public User[] selectUser() {
-        if(!checkConstraints(Exemption.class, true, true, true, true))
+        if(!checkConstraints(User.class, true, true, true, true))
             return null;
 
         if(FromPrevious)
@@ -342,8 +354,11 @@ public class Selector implements ISelector {
     private User[] selectUserPrev(){
         Stream<User> act = TypicalInternalSelector(User.class);
         List<User> ls = act.toList();
-        if(ls.size() > 0)
+        if(ls.size() > 0){
+            LastSelectionType = User.class;
+            Selected = null; SelectedType = null;
             Users = ls;
+        }
         return Arrays.copyOf(ls.toArray(), ls.size(), User[].class);
     }
 
@@ -363,7 +378,7 @@ public class Selector implements ISelector {
         }
 
         if(StringSelectionProperty != null)
-            wheres.add(cb.like(rt.get(StringSelectionProperty), '%'+Lexem+'%'));
+            wheres.add(cb.like(rt.get(StringSelectionProperty).as(String.class), '%'+Lexem+'%'));
 
         if(wheres.size() > 0)
             all = all.where(wheres.toArray(new Predicate[wheres.size()]));
@@ -377,7 +392,7 @@ public class Selector implements ISelector {
         s.close();
 
         if(ex.size() > 0){
-            LastSelectionType = Tax.class;
+            LastSelectionType = User.class;
             Selected = null; SelectedType = null;
             Users = ex;
         }
@@ -454,7 +469,7 @@ public class Selector implements ISelector {
     }
 
 
-    private void clearContext(){
+    public void clearContext(){
         Taxes = null; Incomes = null;
         Exemptions = null; Users = null;
     }
@@ -465,6 +480,8 @@ public class Selector implements ISelector {
         if(LastSelectionType == null)
             return null;
         List<?> ls = GetBuferByType(LastSelectionType);
+        if(ls == null)
+            return null;
         return ls.toArray(new Object[ls.size()]);
     }
 }

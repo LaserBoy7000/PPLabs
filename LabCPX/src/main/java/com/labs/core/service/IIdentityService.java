@@ -3,6 +3,7 @@ import com.google.inject.ImplementedBy;
 import com.labs.core.entity.User;
 import com.labs.core.service.impl.IdentityService;
 
+//Serves for tracking and providing curent user
 @ImplementedBy(IdentityService.class)
 public interface IIdentityService {
     public boolean isUserAvailable();

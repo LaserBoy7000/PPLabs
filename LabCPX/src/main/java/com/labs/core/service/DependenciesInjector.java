@@ -2,19 +2,19 @@ package com.labs.core.service;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
 import com.labs.core.service.module.ServiceConfigModule;
-
+//Services access point, should be used within commands!
 public class DependenciesInjector {
-    private static Injector Injector;
+    private Injector Injector;
 
-    public static void configureInjector(){
+    public DependenciesInjector() {
         Injector = Guice.createInjector(new ServiceConfigModule());
     }
 
-    public static Injector getCurrentInjector(){
+    public Injector getInjector(){
         return Injector;
     }
 
-    public static Object get(Class<?> type){
+    public <T> T get(Class<T> type){
         return Injector.getInstance(type);
     }
 }

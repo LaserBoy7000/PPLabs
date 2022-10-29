@@ -3,6 +3,9 @@ import com.google.inject.ImplementedBy;
 import com.labs.core.entity.*;
 import com.labs.core.service.impl.Selector;
 
+//Is a configurable state machine, which provides
+//cascade sellection of entities using, internal bufers
+//for each type
 @ImplementedBy(Selector.class)
 public interface ISelector {
     public Object getSelected();
@@ -18,4 +21,5 @@ public interface ISelector {
     public void setStringTemplate(String property, String text);
     public void setFromPrevious(boolean fromPrevious);
     public String getLastOperationStatus();
+    public void clearContext();
 }
