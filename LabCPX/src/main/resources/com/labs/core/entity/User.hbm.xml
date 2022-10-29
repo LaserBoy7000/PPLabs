@@ -14,10 +14,10 @@
     <property name="Children" column = "Children" type = "int"/>
     <property name="ChildrenD" column = "ChildrenD" type = "int"/>
     <property name="Password" column = "Password" type = "string"/>
-    <many-to-one column="ExemptionID" name="Exemption" class="Exemption" fetch="select"/>
-    <bag name="Incomes" cascade="all">
+    <many-to-one column="ExemptionID" name="Exemption" class="Exemption" lazy="false" fetch="select"/>
+    <bag name="Incomes" cascade="all" fetch="select">
         <key column="UserID"/>
-        <one-to-many name="Incomes" class="Income"/>
+        <one-to-many name="Incomes" fetch="select" lazy="false" class="Income"/>
     </bag>
     </class>
 </hibernate-mapping>

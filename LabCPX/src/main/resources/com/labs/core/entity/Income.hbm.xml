@@ -12,6 +12,8 @@
     <property name="Date" column = "Date" type = "date"/>
     <property name="Value" column = "Value" type = "double"/>
     <property name="ValueTaxed" column = "ValueTaxed" type = "double"/>
-    <many-to-one constrained="true" column="ExemptionID" name="Exemption" class="Exemption" fetch="select"/>
+    <many-to-one name="User" column = "UserID" class="User" lazy="false" fetch="select"/>
+    <many-to-one constrained="true" column="ExemptionID" name="Exemption" class="Exemption" lazy="false" fetch="select"/>
+    <many-to-one constrained="true" column="TaxID" name="Tax" class="Tax" lazy="false" fetch="select"/>
     </class>
 </hibernate-mapping>

@@ -8,7 +8,7 @@
     <id name = "ID" type="int" column = "ID">
         <generator class="native"/>
     </id>
-    <property name="Title" column = "Title" type = "string"/>
+    <property name="Title" column = "Title" type = "string" unique="true"/>
     <property name="TIPP" column = "TIPP" type = "double"/>
     <property name="WC" column = "WC" type = "double"/>
     <property name="AllowsExemption" column = "AllowsExemption" type = "boolean"/>
