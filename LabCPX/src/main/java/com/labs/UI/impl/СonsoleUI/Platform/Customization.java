@@ -20,13 +20,13 @@ public class Customization {
     
     public enum FontColors {
         None((short)0),
-        Red((short)0x0004),
-        Blue((short)0x0001),
-        Green((short)0x0002),
-        Yellow((short)(0x0004|0x0002)),
-        Purple((short)(0x0004|0x0001)),
-        Cyan((short)(0x0002|0x0001)),
-        White((short)(0x0004|0x0001|0x0002));
+        Red((short)(0x0004|0x0008)),
+        Blue((short)(0x0001|0x0008)),
+        Green((short)(0x0002|0x0008)),
+        Yellow((short)(0x0004|0x0002|0x0008)),
+        Purple((short)(0x0004|0x0001|0x0008)),
+        Cyan((short)(0x0002|0x0001|0x0008)),
+        White((short)(0x0004|0x0001|0x0002|0x0008));
     
         private final short value;
     
