@@ -10,7 +10,7 @@ public class UniComparator {
         }
 
         if(CanBeNumber(first) && CanBeNumber(second))
-            return (double)first <= (double)second;
+            return ((Number)first).doubleValue() <= ((Number)second).doubleValue();
 
         return first.toString().compareTo(second.toString()) <= 0;
     }
@@ -23,7 +23,7 @@ public class UniComparator {
         }
 
         if(CanBeNumber(first) && CanBeNumber(second))
-            return (double)first >= (double)second;
+            return  ((Number)first).doubleValue() >= ((Number)second).doubleValue();
 
         return first.toString().compareTo(second.toString()) >= 0;
     }
