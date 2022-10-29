@@ -1,0 +1,106 @@
+Date : 2022-10-22 00:34:33
+Directory : e:\ProjectCODE\PPLabs\LabCPX
+Total : 55 files,  2712 codes, 9 comments, 523 blanks, all 3244 lines
+
+Languages
++----------+------------+------------+------------+------------+------------+
+| language | files      | code       | comment    | blank      | total      |
++----------+------------+------------+------------+------------+------------+
+| Java     |         48 |      2,491 |          5 |        510 |      3,006 |
+| XML      |          7 |        221 |          4 |         13 |        238 |
++----------+------------+------------+------------+------------+------------+
+
+Directories
++------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                                                 | files      | code       | comment    | blank      | total      |
++------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                                    |         55 |      2,712 |          9 |        523 |      3,244 |
+| src                                                                                                  |         54 |      2,587 |          5 |        516 |      3,108 |
+| src\main                                                                                             |         54 |      2,587 |          5 |        516 |      3,108 |
+| src\main\java                                                                                        |         48 |      2,491 |          5 |        510 |      3,006 |
+| src\main\java\com                                                                                    |         48 |      2,491 |          5 |        510 |      3,006 |
+| src\main\java\com\labs                                                                               |         48 |      2,491 |          5 |        510 |      3,006 |
+| src\main\java\com\labs\UI                                                                            |          4 |        516 |          5 |         79 |        600 |
+| src\main\java\com\labs\UIAPI                                                                         |         16 |        410 |          0 |        101 |        511 |
+| src\main\java\com\labs\UIAPI\command                                                                 |         12 |        365 |          0 |         89 |        454 |
+| src\main\java\com\labs\UIAPI\command\constant                                                        |          1 |         25 |          0 |          7 |         32 |
+| src\main\java\com\labs\UIAPI\command\create                                                          |          3 |         83 |          0 |         23 |        106 |
+| src\main\java\com\labs\UIAPI\command\identity                                                        |          3 |         82 |          0 |         17 |         99 |
+| src\main\java\com\labs\UIAPI\command\select                                                          |          5 |        175 |          0 |         42 |        217 |
+| src\main\java\com\labs\UI\impl                                                                       |          3 |        511 |          5 |         77 |        593 |
+| src\main\java\com\labs\UI\impl\СonsoleUI                                                             |          3 |        511 |          5 |         77 |        593 |
+| src\main\java\com\labs\UI\impl\СonsoleUI\Platform                                                    |          2 |         53 |          0 |         15 |         68 |
+| src\main\java\com\labs\core                                                                          |         27 |      1,552 |          0 |        327 |      1,879 |
+| src\main\java\com\labs\core\entity                                                                   |          5 |        224 |          0 |         53 |        277 |
+| src\main\java\com\labs\core\helper                                                                   |          4 |        228 |          0 |         50 |        278 |
+| src\main\java\com\labs\core\service                                                                  |         18 |      1,100 |          0 |        224 |      1,324 |
+| src\main\java\com\labs\core\service\impl                                                             |          7 |        955 |          0 |        193 |      1,148 |
+| src\main\java\com\labs\core\service\module                                                           |          1 |         29 |          0 |          4 |         33 |
+| src\main\resources                                                                                   |          6 |         96 |          0 |          6 |        102 |
+| src\main\resources\com                                                                               |          5 |         78 |          0 |          5 |         83 |
+| src\main\resources\com\labs                                                                          |          5 |         78 |          0 |          5 |         83 |
+| src\main\resources\com\labs\core                                                                     |          5 |         78 |          0 |          5 |         83 |
+| src\main\resources\com\labs\core\entity                                                              |          5 |         78 |          0 |          5 |         83 |
++------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++------------------------------------------------------------------------------------------------------+----------+------------+------------+------------+------------+
+| filename                                                                                             | language | code       | comment    | blank      | total      |
++------------------------------------------------------------------------------------------------------+----------+------------+------------+------------+------------+
+| e:\ProjectCODE\PPLabs\LabCPX\pom.xml                                                                 | XML      |        125 |          4 |          7 |        136 |
+| e:\ProjectCODE\PPLabs\LabCPX\src\main\java\com\labs\Main.java                                        | Java     |         13 |          0 |          3 |         16 |
+| e:\ProjectCODE\PPLabs\LabCPX\src\main\java\com\labs\UIAPI\CommandResult.java                         | Java     |         11 |          0 |          2 |         13 |
+| e:\ProjectCODE\PPLabs\LabCPX\src\main\java\com\labs\UIAPI\ICommand.java                              | Java     |          4 |          0 |          2 |          6 |
+| e:\ProjectCODE\PPLabs\LabCPX\src\main\java\com\labs\UIAPI\IObjectiveCommand.java                     | Java     |          4 |          0 |          2 |          6 |
+| e:\ProjectCODE\PPLabs\LabCPX\src\main\java\com\labs\UIAPI\UserCommand.java                           | Java     |         26 |          0 |          6 |         32 |
+| e:\ProjectCODE\PPLabs\LabCPX\src\main\java\com\labs\UIAPI\command\constant\SetConstantCommand.java   | Java     |         25 |          0 |          7 |         32 |
+| e:\ProjectCODE\PPLabs\LabCPX\src\main\java\com\labs\UIAPI\command\create\CreateExemptionCommand.java | Java     |         25 |          0 |          8 |         33 |
+| e:\ProjectCODE\PPLabs\LabCPX\src\main\java\com\labs\UIAPI\command\create\CreateIncomeCommand.java    | Java     |         29 |          0 |          7 |         36 |
+| e:\ProjectCODE\PPLabs\LabCPX\src\main\java\com\labs\UIAPI\command\create\CreateTaxCommand.java       | Java     |         29 |          0 |          8 |         37 |
+| e:\ProjectCODE\PPLabs\LabCPX\src\main\java\com\labs\UIAPI\command\identity\AuthorizeUserCommand.java | Java     |         28 |          0 |          6 |         34 |
+| e:\ProjectCODE\PPLabs\LabCPX\src\main\java\com\labs\UIAPI\command\identity\LogoutUserCommand.java    | Java     |         29 |          0 |          4 |         33 |
+| e:\ProjectCODE\PPLabs\LabCPX\src\main\java\com\labs\UIAPI\command\identity\RemoveUserCommand.java    | Java     |         25 |          0 |          7 |         32 |
+| e:\ProjectCODE\PPLabs\LabCPX\src\main\java\com\labs\UIAPI\command\select\SelectExemptionCommand.java | Java     |         37 |          0 |          9 |         46 |
+| e:\ProjectCODE\PPLabs\LabCPX\src\main\java\com\labs\UIAPI\command\select\SelectIncomeCommand.java    | Java     |         45 |          0 |         11 |         56 |
+| e:\ProjectCODE\PPLabs\LabCPX\src\main\java\com\labs\UIAPI\command\select\SelectTaxCommand.java       | Java     |         37 |          0 |          9 |         46 |
+| e:\ProjectCODE\PPLabs\LabCPX\src\main\java\com\labs\UIAPI\command\select\SelectUserCommand.java      | Java     |         37 |          0 |          9 |         46 |
+| e:\ProjectCODE\PPLabs\LabCPX\src\main\java\com\labs\UIAPI\command\select\SelectorConfiguration.java  | Java     |         19 |          0 |          4 |         23 |
+| e:\ProjectCODE\PPLabs\LabCPX\src\main\java\com\labs\UI\IUserInterface.java                           | Java     |          5 |          0 |          2 |          7 |
+| e:\ProjectCODE\PPLabs\LabCPX\src\main\java\com\labs\UI\impl\СonsoleUI\ConsoleUI.java                 | Java     |        458 |          5 |         62 |        525 |
+| e:\ProjectCODE\PPLabs\LabCPX\src\main\java\com\labs\UI\impl\СonsoleUI\Platform\Customization.java    | Java     |         46 |          0 |         13 |         59 |
+| e:\ProjectCODE\PPLabs\LabCPX\src\main\java\com\labs\UI\impl\СonsoleUI\Platform\K32.java              | Java     |          7 |          0 |          2 |          9 |
+| e:\ProjectCODE\PPLabs\LabCPX\src\main\java\com\labs\core\entity\Constant.java                        | Java     |         17 |          0 |          3 |         20 |
+| e:\ProjectCODE\PPLabs\LabCPX\src\main\java\com\labs\core\entity\Exemption.java                       | Java     |         28 |          0 |          6 |         34 |
+| e:\ProjectCODE\PPLabs\LabCPX\src\main\java\com\labs\core\entity\Income.java                          | Java     |         61 |          0 |         14 |         75 |
+| e:\ProjectCODE\PPLabs\LabCPX\src\main\java\com\labs\core\entity\Tax.java                             | Java     |         50 |          0 |         10 |         60 |
+| e:\ProjectCODE\PPLabs\LabCPX\src\main\java\com\labs\core\entity\User.java                            | Java     |         68 |          0 |         20 |         88 |
+| e:\ProjectCODE\PPLabs\LabCPX\src\main\java\com\labs\core\helper\ActionEvent.java                     | Java     |         18 |          0 |          6 |         24 |
+| e:\ProjectCODE\PPLabs\LabCPX\src\main\java\com\labs\core\helper\ReflectionGetter.java                | Java     |         56 |          0 |         11 |         67 |
+| e:\ProjectCODE\PPLabs\LabCPX\src\main\java\com\labs\core\helper\StringableTable.java                 | Java     |        123 |          0 |         24 |        147 |
+| e:\ProjectCODE\PPLabs\LabCPX\src\main\java\com\labs\core\helper\UniComparator.java                   | Java     |         31 |          0 |          9 |         40 |
+| e:\ProjectCODE\PPLabs\LabCPX\src\main\java\com\labs\core\service\DependenciesInjector.java           | Java     |         16 |          0 |          5 |         21 |
+| e:\ProjectCODE\PPLabs\LabCPX\src\main\java\com\labs\core\service\ICalculator.java                    | Java     |         12 |          0 |          3 |         15 |
+| e:\ProjectCODE\PPLabs\LabCPX\src\main\java\com\labs\core\service\IConsistencyService.java            | Java     |         13 |          0 |          2 |         15 |
+| e:\ProjectCODE\PPLabs\LabCPX\src\main\java\com\labs\core\service\IConstantProvider.java              | Java     |          9 |          0 |          3 |         12 |
+| e:\ProjectCODE\PPLabs\LabCPX\src\main\java\com\labs\core\service\ICreator.java                       | Java     |         11 |          0 |          3 |         14 |
+| e:\ProjectCODE\PPLabs\LabCPX\src\main\java\com\labs\core\service\IEssentials.java                    | Java     |          5 |          0 |          2 |          7 |
+| e:\ProjectCODE\PPLabs\LabCPX\src\main\java\com\labs\core\service\IExpressionEvaluator.java           | Java     |          9 |          0 |          3 |         12 |
+| e:\ProjectCODE\PPLabs\LabCPX\src\main\java\com\labs\core\service\IIdentityService.java               | Java     |         15 |          0 |          2 |         17 |
+| e:\ProjectCODE\PPLabs\LabCPX\src\main\java\com\labs\core\service\ISelector.java                      | Java     |         20 |          0 |          2 |         22 |
+| e:\ProjectCODE\PPLabs\LabCPX\src\main\java\com\labs\core\service\IWriter.java                        | Java     |          6 |          0 |          2 |          8 |
+| e:\ProjectCODE\PPLabs\LabCPX\src\main\java\com\labs\core\service\impl\Calculator.java                | Java     |         74 |          0 |         13 |         87 |
+| e:\ProjectCODE\PPLabs\LabCPX\src\main\java\com\labs\core\service\impl\ConsistencyService.java        | Java     |        158 |          0 |         21 |        179 |
+| e:\ProjectCODE\PPLabs\LabCPX\src\main\java\com\labs\core\service\impl\ConstantProvider.java          | Java     |         78 |          0 |         11 |         89 |
+| e:\ProjectCODE\PPLabs\LabCPX\src\main\java\com\labs\core\service\impl\CreatorService.java            | Java     |         69 |          0 |         12 |         81 |
+| e:\ProjectCODE\PPLabs\LabCPX\src\main\java\com\labs\core\service\impl\ExpressionEvaluator.java       | Java     |         95 |          0 |         13 |        108 |
+| e:\ProjectCODE\PPLabs\LabCPX\src\main\java\com\labs\core\service\impl\IdentityService.java           | Java     |        108 |          0 |         22 |        130 |
+| e:\ProjectCODE\PPLabs\LabCPX\src\main\java\com\labs\core\service\impl\Selector.java                  | Java     |        373 |          0 |        101 |        474 |
+| e:\ProjectCODE\PPLabs\LabCPX\src\main\java\com\labs\core\service\module\ServiceConfigModule.java     | Java     |         29 |          0 |          4 |         33 |
+| e:\ProjectCODE\PPLabs\LabCPX\src\main\resources\com\labs\core\entity\Constant.hbm.xml                | XML      |         10 |          0 |          0 |         10 |
+| e:\ProjectCODE\PPLabs\LabCPX\src\main\resources\com\labs\core\entity\Exemption.hbm.xml               | XML      |         13 |          0 |          1 |         14 |
+| e:\ProjectCODE\PPLabs\LabCPX\src\main\resources\com\labs\core\entity\Income.hbm.xml                  | XML      |         18 |          0 |          1 |         19 |
+| e:\ProjectCODE\PPLabs\LabCPX\src\main\resources\com\labs\core\entity\Tax.hbm.xml                     | XML      |         16 |          0 |          1 |         17 |
+| e:\ProjectCODE\PPLabs\LabCPX\src\main\resources\com\labs\core\entity\User.hbm.xml                    | XML      |         21 |          0 |          2 |         23 |
+| e:\ProjectCODE\PPLabs\LabCPX\src\main\resources\hibernate.cfg.xml                                    | XML      |         18 |          0 |          1 |         19 |
+| Total                                                                                                |          |      2,712 |          9 |        523 |      3,244 |
++------------------------------------------------------------------------------------------------------+----------+------------+------------+------------+------------+
