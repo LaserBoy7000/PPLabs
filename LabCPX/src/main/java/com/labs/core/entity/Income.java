@@ -1,4 +1,5 @@
 package com.labs.core.entity;
+
 import java.util.Date;
 
 public class Income {
@@ -8,15 +9,10 @@ public class Income {
     private double Value;
     private double ValueTaxed;
     private Exemption Exemption;
+    private Tax Tax;
+    private User user;
 
     public Income(){}
-    public Income(java.util.Date date, String title, double value, double valueTaxed, Exemption exemption) {
-        Date = date;
-        Title = title;
-        Value = value;
-        ValueTaxed = valueTaxed;
-        Exemption = exemption;
-    }
 
     public int getID() {
         return ID;
@@ -58,5 +54,21 @@ public class Income {
     }
     public void setExemption(Exemption exemption) {
         Exemption = exemption;
+    }
+
+    public Tax getTax() {
+        return Tax;
+    }
+
+    public void setTax(Tax tax) {
+        Tax = tax;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }

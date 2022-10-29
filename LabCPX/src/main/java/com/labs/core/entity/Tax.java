@@ -52,11 +52,8 @@ public class Tax {
         Formula = formula;
     }
 
-    public boolean isApplyable(Income income, User user){
-        return false;
-    }
-
-    public void calculate(Income income, Exemption exemption){
-        return;
+    @Override
+    public String toString() {
+        return Title;
     }
 }

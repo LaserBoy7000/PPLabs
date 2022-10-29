@@ -26,15 +26,8 @@ public class Exemption {
         Formula = formula;
     }
 
-    boolean isApplyable(Tax tax, Income income){
-        return false;
-    }
-
-    boolean isApplyable(User user){
-        return false;
-    }
-
-    double calculate(Income income){
-        return 0.0;
+    @Override
+    public String toString() {
+        return Title;
     }
 }
